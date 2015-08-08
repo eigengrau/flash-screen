@@ -1,11 +1,12 @@
-CFLAGS  += `pkg-config --cflags gtk+-3.0 libcanberra-gtk3`
-LDFLAGS += -Wl,--no-as-needed,`pkg-config --libs gtk+-3.0 libcanberra-gtk3`
+LIBS = gtk+-3.0 libcanberra-gtk3
+CFLAGS  += `pkg-config --cflags ${LIBS}`
+LDFLAGS += `pkg-config --libs   ${LIBS}`
 PREFIX  = usr/local
 
 all: build
 
 build: cheese-flash.o sound.o main.o
-	$(CC) $(CFLAGS) $(LDFLAGS) $+ -o flash-screen
+	$(CC) $+ $(CFLAGS) $(LDFLAGS) -o flash-screen
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $<

@@ -4,7 +4,7 @@ import subprocess
 import shlex
 from setuptools import setup
 
-version = '0.1.0.0'
+version = '0.2.0.0'
 
 try:
     hash = (
@@ -38,7 +38,7 @@ setup(
     license="GPL3",
     entry_points={
         'console_scripts': [
-            'flash-screen = flash_screen:main'
+            'flash-screen = flash_screen.cli:console_entry'
         ],
     }
 )

@@ -1,2 +1,7 @@
-*.o
-flash-screen
+bin/
+include/
+lib/
+dist/
+pip-selfcheck.json
+__pycache__/
+*.egg-info/

@@ -8,7 +8,4 @@ triggered.
 
 .. _maim: https://github.com/naelstrof/maim
 
-The screen flashing code has been <del>stolen</del> borrowed from
-the Gnome screenshot application.
-
-``flash-screen`` depends on GTK+ 3 and libcanberra.
+``flash-screen`` depends on GTK+ 3, GSound and pygobject.

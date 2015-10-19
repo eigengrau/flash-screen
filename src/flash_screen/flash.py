@@ -13,7 +13,8 @@ class Flash (Gtk.Window):
                  duration=100,
                  fade=.95,
                  fps=120,
-                 threshold=.95):
+                 threshold=.95,
+                 sound=True):
         """
         Args:
             duration (int): Hold-time for the flash, in ms. After this interval
@@ -22,6 +23,7 @@ class Flash (Gtk.Window):
                 fade step.
             threshold (float): The opacity level at which the flash is
                 considered finished.
+            sound (bool): Toogles whether the shutter-sound is played.
         """
 
         super().__init__(Gtk.WindowType.POPUP)
@@ -61,11 +63,13 @@ class Flash (Gtk.Window):
         self._fps = fps
         self._threshold = threshold
         self._opacity = 1
+        self._sound = sound
 
         # Good to go.
         self.show_all()
         GObject.timeout_add(self._duration, self._begin_fade)
-        self._fire_shutter_sound()
+        if self._sound:
+            self._fire_shutter_sound()
 
     def _fire_shutter_sound(self):
 

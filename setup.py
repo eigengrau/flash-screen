@@ -34,7 +34,7 @@ setup(
     url='https://github.com/eigengrau/flash-screen',
     packages=['flash_screen'],
     package_dir={'': 'src'},
-    install_requires=['pygobject >= 3.18, < 3.29'],
+    install_requires=['pygobject >= 3.18, < 3.33'],
     license="GPL3",
     entry_points={
         'console_scripts': [

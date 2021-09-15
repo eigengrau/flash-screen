@@ -11,9 +11,9 @@ class Flash (Gtk.Window):
 
     def __init__(self,
                  duration=100,
-                 fade=.95,
+                 fade=.9,
                  fps=120,
-                 threshold=.95,
+                 threshold=.25,
                  sound=True):
         """
         Args:
@@ -62,7 +62,7 @@ class Flash (Gtk.Window):
         self._fade = fade
         self._fps = fps
         self._threshold = threshold
-        self._opacity = 1
+        self._opacity = .75
         self._sound = sound
 
         # Good to go.

@@ -66,6 +66,7 @@ class Flash (Gtk.Window):
         self._sound = sound
 
         # Good to go.
+        self.connect('draw', self._on_draw)
         self.show_all()
         GObject.timeout_add(self._duration, self._begin_fade)
         if self._sound:
@@ -77,10 +78,11 @@ class Flash (Gtk.Window):
             GSound.ATTR_EVENT_ID: 'screen-capture'
         })
 
-    def on_draw(self, _wid, ctx):
+    def _on_draw(self, _wid, ctx):
 
         ctx.set_source_rgba(1, 1, 1, self._opacity)
         ctx.paint()
+        return True
 
     def _begin_fade(self):
 

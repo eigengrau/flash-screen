@@ -1,9 +1,9 @@
-{ pkgs }:
-pkgs.python38Packages.buildPythonApplication {
+{ gtk3, gobject-introspection, gsound, python3Packages, wrapGAppsHook }:
+python3Packages.buildPythonApplication {
   pname = "flash-screen";
   version = "0.2.1.0";
-  nativeBuildInputs = [ pkgs.wrapGAppsHook ];
-  propagatedBuildInputs = [ pkgs.python38Packages.pygobject3 ]
-    ++ (with pkgs; [ gtk3 gobject-introspection gsound ]);
+  nativeBuildInputs = [ wrapGAppsHook ];
+  propagatedBuildInputs = [ python3Packages.pygobject3 ]
+    ++ [ gtk3 gobject-introspection gsound ];
   src = ../.;
 }

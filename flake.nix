@@ -17,11 +17,15 @@
           ];
         };
       in rec {
-        packages = { flash-screen = pkgs.flash-screen; };
-        defaultPackage = packages.flash-screen;
-        defaultApp = {
-          type = "app";
-          program = "${packages.flash-screen}/bin/flash-screen";
+        packages = rec {
+          default = flash-screen;
+          flash-screen = pkgs.flash-screen;
+        };
+        apps = {
+          default = {
+            type = "app";
+            program = "${packages.flash-screen}/bin/flash-screen";
+          };
         };
       }));
 }

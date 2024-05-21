@@ -1,7 +1,7 @@
 {
   description = "flash-screen";
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-21.05";
+    nixpkgs.url = "nixpkgs/nixos-23.11";
     utils.url = "github:numtide/flake-utils";
   };
   outputs = { self, nixpkgs, utils }:
